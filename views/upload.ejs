@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📁 Document Upload</h1>
+            <p>Upload multiple documents with ease and style</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">☁️</div>
+                <div class="upload-text">Drop files here or click to browse</div>
+                <div class="upload-subtext">Supports PDF, DOC, DOCX, XLS, XLSX, JPG, PNG (Max 50MB each)</div>
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                    Choose Files
+                </button>
+                <input type="file" id="fileInput" class="file-input" multiple 
+                       accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
+                       name="documents">
+            </div>
+
+            <div class="stats" id="stats" style="display: none;">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalFiles">0</div>
+                    <div class="stat-label">Total Files</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="validFiles">0</div>
+                    <div class="stat-label">Valid Files</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalSize">0 MB</div>
+                    <div class="stat-label">Total Size</div>
+                </div>
+            </div>
+
+            <div id="messageArea"></div>
+
+            <div class="file-list" id="fileList" style="display: none;">
+                <h3>📋 Selected Files</h3>
+                <div id="fileItems"></div>
+                
+                <div class="upload-controls">
+                    <button class="upload-all-btn" id="uploadAllBtn" onclick="uploadAllFiles()">
+                        🚀 Upload All Files
+                    </button>
+                    <button class="clear-btn" onclick="clearAllFiles()">
+                        🗑️ Clear All
+                    </button>
+                </div>
+            </div>
+
+            <div class="progress-bar" id="progressBar" style="display: none;">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/upload.js"></script>
+</body>
+</html>
